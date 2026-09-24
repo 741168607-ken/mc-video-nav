@@ -88,11 +88,13 @@ body{
 .poster{
   position:relative;aspect-ratio:16/10;
   background:linear-gradient(180deg,#7cbd42 0 22%,#8b5a2b 22%);
-  display:flex;align-items:center;justify-content:center;
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
 }
 .poster::after{content:"";position:absolute;inset:0;
   background-image:radial-gradient(rgba(0,0,0,.08) 1px,transparent 1px);
   background-size:8px 8px;pointer-events:none}
+.poster-inner{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:46px}
+.poster-inner img.thumb{width:100%;height:100%;object-fit:cover;display:block}
 .block-icon{font-size:46px;filter:drop-shadow(2px 2px 0 rgba(0,0,0,.3))}
 .play-badge{
   position:absolute;right:8px;bottom:8px;width:38px;height:38px;
@@ -229,11 +231,18 @@ body{
       var v=it.video;
       var card=document.createElement("div"); card.className="card";
       var poster=document.createElement("div"); poster.className="poster";
-      var icon=document.createElement("div"); icon.className="block-icon";
-      icon.textContent=ICONS[it.cat%ICONS.length];
+      var holder=document.createElement("div"); holder.className="poster-inner";
+      if(v.thumb){
+        var img=document.createElement("img"); img.className="thumb";
+        img.src=v.thumb; img.alt="";
+        img.onerror=function(){ this.style.display="none"; holder.innerHTML=ICONS[it.cat%ICONS.length]; };
+        holder.appendChild(img);
+      } else {
+        holder.textContent=ICONS[it.cat%ICONS.length];
+      }
       var badge=document.createElement("div"); badge.className="play-badge";
       badge.innerHTML='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
-      poster.appendChild(icon); poster.appendChild(badge);
+      poster.appendChild(holder); poster.appendChild(badge);
       var body=document.createElement("div"); body.className="card-body";
       var name=document.createElement("div"); name.className="card-name"; name.textContent=v.name;
       var meta=document.createElement("div"); meta.className="card-meta";
