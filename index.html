@@ -96,12 +96,18 @@ body{
 .poster-inner img.thumb{width:100%;height:100%;object-fit:cover;display:block}
 .block-icon{font-size:46px;filter:drop-shadow(2px 2px 0 rgba(0,0,0,.3))}
 .play-badge{
-  position:absolute;right:8px;bottom:8px;width:38px;height:38px;
+  position:absolute;right:8px;top:8px;width:38px;height:38px;
   background:var(--grass);border:2px solid rgba(0,0,0,.4);
   color:#fff;display:flex;align-items:center;justify-content:center;
   box-shadow:2px 2px 0 rgba(0,0,0,.3);
 }
 .play-badge svg{width:18px;height:18px;margin-left:2px}
+.fav-btn{
+  position:absolute;right:8px;bottom:8px;width:38px;height:38px;z-index:2;
+  background:rgba(0,0,0,.45);color:#fff;font-size:19px;display:flex;align-items:center;justify-content:center;
+  border:2px solid rgba(0,0,0,.4);box-shadow:2px 2px 0 rgba(0,0,0,.3);cursor:pointer;
+}
+.fav-btn.on{background:var(--gold);color:#7a5b00;text-shadow:none}
 .card-body{padding:10px 12px 12px;background:#e8e0c8}
 .card-name{
   font-size:13.5px;font-weight:800;line-height:1.45;color:#3a2e1e;
@@ -197,8 +203,25 @@ body{
   function playUrl(v){ return BAIDU_PLAY+encodeURIComponent(v.path||""); }
   function playInBaidu(v){ bumpCount(v.path); window.open(playUrl(v),"_blank"); }
 
+  /* ---------- 收藏 ---------- */
+  var favs={};
+  function loadFavs(){ try{favs=JSON.parse(localStorage.getItem("mcnav.favs")||"{}")||{};}catch(e){favs={};} }
+  function saveFavs(){ try{localStorage.setItem("mcnav.favs",JSON.stringify(favs));}catch(e){} }
+  function isFav(p){ return !!favs[p]; }
+  function toggleFav(p){
+    if(favs[p]) delete favs[p]; else favs[p]=1;
+    saveFavs();
+    renderAll();
+    toast(isFav(p)?"已收藏":"已取消收藏");
+  }
+
   function totalVideos(){ var n=0; DATA.categories.forEach(function(c){n+=(c.videos||[]).length;}); return n; }
   function visibleVideos(){
+    if(state.cat==="fav"){
+      var l=[]; DATA.categories.forEach(function(c,i){
+        (c.videos||[]).forEach(function(v){ if(isFav(v.path)) l.push({cat:i,video:v}); });
+      }); return l;
+    }
     var c=DATA.categories[state.cat], out=[];
     if(c)(c.videos||[]).forEach(function(v){ out.push({cat:state.cat,video:v}); }); return out;
   }
@@ -218,6 +241,7 @@ body{
       item(String(i),c.name||("分类"+(i+1)),(c.videos||[]).length,
            NAV_COLORS[i%NAV_COLORS.length], ICONS[i%ICONS.length]);
     });
+    item("fav","我收藏的视频",Object.keys(favs).length,"#e6a23c","★");
   }
 
   function renderCards(){
@@ -238,7 +262,10 @@ body{
       }
       var badge=document.createElement("div"); badge.className="play-badge";
       badge.innerHTML='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
-      poster.appendChild(holder); poster.appendChild(badge);
+      var fav=document.createElement("div"); fav.className="fav-btn"+(isFav(v.path)?" on":"");
+      fav.textContent="★"; fav.title=isFav(v.path)?"取消收藏":"收藏";
+      fav.addEventListener("click",function(e){ e.stopPropagation(); toggleFav(v.path); });
+      poster.appendChild(holder); poster.appendChild(badge); poster.appendChild(fav);
       var body=document.createElement("div"); body.className="card-body";
       var name=document.createElement("div"); name.className="card-name"; name.textContent=v.name;
       var meta=document.createElement("div"); meta.className="card-meta";
@@ -253,6 +280,11 @@ body{
   }
 
   function renderHeading(){
+    if(state.cat==="fav"){
+      setText("heading-title","我收藏的视频");
+      setText("heading-sub",Object.keys(favs).length+" 个已收藏");
+      return;
+    }
     var c=DATA.categories[state.cat];
     setText("heading-title",c?c.name:"视频");
     setText("heading-sub",(c?(c.videos||[]).length:0)+" 个视频");
@@ -263,12 +295,15 @@ body{
   document.title=DATA.title||"我的世界视频";
   setText("site-title",DATA.title||"我的世界视频");
   loadCounts();
+  loadFavs();
   try{ var s=JSON.parse(localStorage.getItem("mcnav.state")||"null");
-    if(s&&typeof s.cat==="number"&&s.cat>=0&&s.cat<DATA.categories.length)state.cat=s.cat; }catch(e){}
+    if(s){ if(s.cat==="fav")state.cat="fav";
+      else if(typeof s.cat==="number"&&s.cat>=0&&s.cat<DATA.categories.length)state.cat=s.cat; } }catch(e){}
 
   $("category-nav").addEventListener("click",function(e){
     var it=e.target.closest(".nav-item"); if(!it)return;
-    state.cat=Number(it.getAttribute("data-cat")); renderAll();
+    var k=it.getAttribute("data-cat");
+    state.cat=(k==="fav")?"fav":Number(k); renderAll();
   });
   $("reset-counts").addEventListener("click",function(){
     if(!window.confirm("确定清零播放次数吗？"))return;
