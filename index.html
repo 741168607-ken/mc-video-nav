@@ -7,7 +7,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="我的世界视频">
-<title>我的世界视频导航</title>
+<title>Minecraft Video</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -45,9 +45,8 @@ body{
   height:calc(100vh - 36px);position:sticky;top:18px;
 }
 .brand{display:flex;align-items:center;gap:10px;padding:0 6px 14px}
-.logo{width:46px;height:46px;flex-shrink:0;border:2px solid var(--dirt2);
-  background:linear-gradient(180deg,var(--grass2) 0 35%,var(--dirt) 35% 100%);
-  box-shadow:2px 2px 0 rgba(0,0,0,.3);image-rendering:pixelated}
+.logo{width:46px;height:46px;flex-shrink:0;border:2px solid rgba(0,0,0,.4);
+  box-shadow:2px 2px 0 rgba(0,0,0,.3);object-fit:cover}
 .brand h1{font-size:16px;font-weight:900;color:var(--ink);text-shadow:1px 1px 0 #fff}
 .brand .meta{font-size:11px;color:#555;margin-top:2px}
 .nav{overflow-y:auto;flex:1;display:flex;flex-direction:column;gap:10px;padding:4px 2px}
@@ -143,9 +142,9 @@ body{
 <div class="app">
   <aside class="sidebar">
     <div class="brand">
-      <div class="logo"></div>
+      <img class="logo" src="logo.png" alt="logo">
       <div>
-        <h1 id="site-title">我的世界视频</h1>
+        <h1 id="site-title">Minecraft Video</h1>
         <div class="meta" id="generated-at"></div>
       </div>
     </div>
@@ -170,8 +169,8 @@ body{
 <script>
 (function(){
   "use strict";
-  var DATA = window.NAV_DATA || {title:"我的世界视频导航", categories:[]};
-  var state = {cat:"all"};
+  var DATA = window.NAV_DATA || {title:"Minecraft Video", categories:[]};
+  var state = {cat:0};
   var BAIDU_PLAY = "https://pan.baidu.com/play/video#/video?path=";
   function $(id){ return document.getElementById(id); }
   function setText(id,t){ $(id).textContent=t; }
@@ -200,8 +199,6 @@ body{
 
   function totalVideos(){ var n=0; DATA.categories.forEach(function(c){n+=(c.videos||[]).length;}); return n; }
   function visibleVideos(){
-    if(state.cat==="all"){ var l=[]; DATA.categories.forEach(function(c,i){
-      (c.videos||[]).forEach(function(v){ l.push({cat:i,video:v}); }); }); return l; }
     var c=DATA.categories[state.cat], out=[];
     if(c)(c.videos||[]).forEach(function(v){ out.push({cat:state.cat,video:v}); }); return out;
   }
@@ -217,7 +214,6 @@ body{
       el.innerHTML='<span class="nm">'+icon+" "+label+'</span><span class="count">'+count+"</span>";
       nav.appendChild(el);
     }
-    item("all","全部",totalVideos(),"#5d9430","🌍");
     DATA.categories.forEach(function(c,i){
       item(String(i),c.name||("分类"+(i+1)),(c.videos||[]).length,
            NAV_COLORS[i%NAV_COLORS.length], ICONS[i%ICONS.length]);
@@ -257,10 +253,9 @@ body{
   }
 
   function renderHeading(){
-    if(state.cat==="all"){ setText("heading-title","我的世界 · 全部视频"); setText("heading-sub",totalVideos()+" 个视频"); }
-    else{ var c=DATA.categories[state.cat];
-      setText("heading-title",c?c.name:"视频");
-      setText("heading-sub",(c?(c.videos||[]).length:0)+" 个视频"); }
+    var c=DATA.categories[state.cat];
+    setText("heading-title",c?c.name:"视频");
+    setText("heading-sub",(c?(c.videos||[]).length:0)+" 个视频");
   }
   function renderAll(){ renderNav(); renderHeading(); renderCards();
     try{localStorage.setItem("mcnav.state",JSON.stringify({cat:state.cat}));}catch(e){} }
@@ -269,13 +264,11 @@ body{
   setText("site-title",DATA.title||"我的世界视频");
   loadCounts();
   try{ var s=JSON.parse(localStorage.getItem("mcnav.state")||"null");
-    if(s){ if(s.cat==="all")state.cat="all";
-      else if(typeof s.cat==="number"&&s.cat>=0&&s.cat<DATA.categories.length)state.cat=s.cat; } }catch(e){}
+    if(s&&typeof s.cat==="number"&&s.cat>=0&&s.cat<DATA.categories.length)state.cat=s.cat; }catch(e){}
 
   $("category-nav").addEventListener("click",function(e){
     var it=e.target.closest(".nav-item"); if(!it)return;
-    var k=it.getAttribute("data-cat");
-    state.cat=(k==="all")?"all":Number(k); renderAll();
+    state.cat=Number(it.getAttribute("data-cat")); renderAll();
   });
   $("reset-counts").addEventListener("click",function(){
     if(!window.confirm("确定清零播放次数吗？"))return;

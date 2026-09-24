@@ -1,8 +1,8 @@
-window.NAV_DATA = {
- "title": "我的世界视频导航",
+﻿window.NAV_DATA = {
+ "title": "Minecraft Video",
  "categories": [
   {
-   "name": "英语启蒙 Easy English",
+   "name": "Minecraft English",
    "videos": [
     {
      "name": "第01集：初识我的世界",
@@ -252,7 +252,7 @@ window.NAV_DATA = {
    ]
   },
   {
-   "name": "Maizen 冒险",
+   "name": "Maizen Mikey and JJ",
    "videos": [
     {
      "name": "从安全屋偷钻石的4种方法",
@@ -562,7 +562,7 @@ window.NAV_DATA = {
    ]
   },
   {
-   "name": "散落合集",
+   "name": "Minecraft其他视频",
    "videos": [
     {
      "name": "1. 我的世界：新手 vs 高手——最安全金库建造挑战",
