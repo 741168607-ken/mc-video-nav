@@ -260,7 +260,7 @@ body{
         holder.textContent=ICONS[it.cat%ICONS.length];
       }
       var badge=document.createElement("div"); badge.className="play-badge";
-      badge.innerHTML='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+      badge.innerHTML='<svg viewBox="0 0 24 24"><defs><linearGradient id="pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a5ef74"/><stop offset=".55" stop-color="#7bd94a"/><stop offset="1" stop-color="#4caf2e"/></linearGradient></defs><path d="M9.3 5.7 Q9.3 4.9 10.1 5.1 L18.7 11.4 Q19.5 12 18.7 12.6 L10.1 18.9 Q9.3 19.1 9.3 18.3 Z" fill="url(#pg)" stroke="#2f5d1e" stroke-width=".8" stroke-linejoin="round"/></svg>';
       poster.appendChild(holder); poster.appendChild(badge);
       var body=document.createElement("div"); body.className="card-body";
       var name=document.createElement("div"); name.className="card-name"; name.textContent=v.name;

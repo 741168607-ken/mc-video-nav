@@ -1,4 +1,4 @@
-﻿window.NAV_DATA = {
+window.NAV_DATA = {
  "title": "Minecraft Video",
  "categories": [
   {
@@ -255,307 +255,307 @@
    "name": "Maizen Mikey and JJ",
    "videos": [
     {
-     "name": "从安全屋偷钻石的4种方法",
+     "name": "1. 从安全屋偷钻石的4种方法",
      "path": "/Minecraft video/Maizen Mikey and JJ/4 Ways to Steal Diamonds From Security Houses - Minecraft [3yInWCpnUBc].mp4",
      "thumb": "thumbs/maizen_001.jpg"
     },
     {
-     "name": "7种安全建筑 vs 凋零骷髅",
+     "name": "2. 7种安全建筑 vs 凋零骷髅",
      "path": "/Minecraft video/Maizen Mikey and JJ/7 Security Build Hacks vs Wither Skeletons - Minecraft [FaN7-g2R-8c].mp4",
      "thumb": "thumbs/maizen_002.jpg"
     },
     {
-     "name": "偷钻石的7种方法",
+     "name": "3. 偷钻石的7种方法",
      "path": "/Minecraft video/Maizen Mikey and JJ/7 Ways to Steal Diamonds in Minecraft [_aVWFv3f_Ic].mp4",
      "thumb": "thumbs/maizen_003.jpg"
     },
     {
-     "name": "火山岛生存100天",
+     "name": "4. 火山岛生存100天",
      "path": "/Minecraft video/Maizen Mikey and JJ/100 Days on a Volcanic Island in Minecraft [jgiWhzxitrk].mp4",
      "thumb": "thumbs/maizen_004.jpg"
     },
     {
-     "name": "岩浆每天上涨100天",
+     "name": "5. 岩浆每天上涨100天",
      "path": "/Minecraft video/Maizen Mikey and JJ/100 Days, But Lava Rises Every Day! [VtbqyPdxhvo].mp4",
      "thumb": "thumbs/maizen_005.jpg"
     },
     {
-     "name": "从出生到死亡",
+     "name": "6. 从出生到死亡",
      "path": "/Minecraft video/Maizen Mikey and JJ/BIRTH to DEATH in MINECRAFT [-GKZis4ihzo].mp4",
      "thumb": "thumbs/maizen_006.jpg"
     },
     {
-     "name": "蓝魔 vs 安全屋",
+     "name": "7. 蓝魔 vs 安全屋",
      "path": "/Minecraft video/Maizen Mikey and JJ/Blue Demon vs Security House - Minecraft [vYIsSYXZpxk].mp4",
      "thumb": "thumbs/maizen_007.jpg"
     },
     {
-     "name": "建造现代木屋",
+     "name": "8. 建造现代木屋",
      "path": "/Minecraft video/Maizen Mikey and JJ/Building A Modern Wooden House in Minecraft [oDmNORI2ovw].mp4",
      "thumb": "thumbs/maizen_008.jpg"
     },
     {
-     "name": "卡通猫 vs 安全屋",
+     "name": "9. 卡通猫 vs 安全屋",
      "path": "/Minecraft video/Maizen Mikey and JJ/Cartoon Cat vs Security House - Minecraft [2u7hOy3JLVE].mp4",
      "thumb": "thumbs/maizen_009.jpg"
     },
     {
-     "name": "自定义血量：速通 vs 猎人",
+     "name": "10. 自定义血量：速通 vs 猎人",
      "path": "/Minecraft video/Maizen Mikey and JJ/Custom Hearts Speedrunner VS Hunter in Minecraft [VY-Ewukt8tU].mp4",
      "thumb": "thumbs/maizen_010.jpg"
     },
     {
-     "name": "龙卷风 vs 末日地堡",
+     "name": "11. 龙卷风 vs 末日地堡",
      "path": "/Minecraft video/Maizen Mikey and JJ/EPIC TORNADO vs. Doomsday Bunker - Minecraft [xH4N6tAGhqI].mp4",
      "thumb": "thumbs/maizen_011.jpg"
     },
     {
-     "name": "逃出安全监狱",
+     "name": "12. 逃出安全监狱",
      "path": "/Minecraft video/Maizen Mikey and JJ/Escape From A Security Prison [qk4bJcr6Rw4].mp4",
      "thumb": "thumbs/maizen_012.jpg"
     },
     {
-     "name": "100天监狱逃脱",
+     "name": "13. 100天监狱逃脱",
      "path": "/Minecraft video/Maizen Mikey and JJ/Escaping from a 100 DAYS PRISON in Minecraft! [69rAYdEJbsg].mp4",
      "thumb": "thumbs/maizen_013.jpg"
     },
     {
-     "name": "玩具熊 vs 安全屋大战",
+     "name": "14. 玩具熊 vs 安全屋大战",
      "path": "/Minecraft video/Maizen Mikey and JJ/FNAF vs. Security House Battle - Minecraft [fjzPQodZ76c].mp4",
      "thumb": "thumbs/maizen_014.jpg"
     },
     {
-     "name": "和100个朋友捉迷藏",
+     "name": "15. 和100个朋友捉迷藏",
      "path": "/Minecraft video/Maizen Mikey and JJ/Hide and Seek with 100 Friends [XHT86A6IEjk].mp4",
      "thumb": "thumbs/maizen_015.jpg"
     },
     {
-     "name": "建造水下秘密基地",
+     "name": "16. 建造水下秘密基地",
      "path": "/Minecraft video/Maizen Mikey and JJ/How To Build A Modern Underwater Secret Base in Minecraft [T74sySy9yyM].mp4",
      "thumb": "thumbs/maizen_016.jpg"
     },
     {
-     "name": "偷偷整蛊朋友",
+     "name": "17. 偷偷整蛊朋友",
      "path": "/Minecraft video/Maizen Mikey and JJ/I  Secretly Pranked My Friend in Minecraft [wwMAWpqbGvY].mp4",
      "thumb": "thumbs/maizen_017.jpg"
     },
     {
-     "name": "黑进朋友的秘密基地",
+     "name": "18. 黑进朋友的秘密基地",
      "path": "/Minecraft video/Maizen Mikey and JJ/I Hacked My Friend's Secret Base In Minecraft [CjG90KNab2s].mp4",
      "thumb": "thumbs/maizen_018.jpg"
     },
     {
-     "name": "变成狗整蛊朋友",
+     "name": "19. 变成狗整蛊朋友",
      "path": "/Minecraft video/Maizen Mikey and JJ/I Pranked My Friend as a Dog! [044fZm-bvPQ].mp4",
      "thumb": "thumbs/maizen_019.jpg"
     },
     {
-     "name": "变身模组整蛊朋友",
+     "name": "20. 变身模组整蛊朋友",
      "path": "/Minecraft video/Maizen Mikey and JJ/I Pranked My Friend With a Morphing Mod in Minecraft [6gbkL37opDA].mp4",
      "thumb": "thumbs/maizen_020.jpg"
     },
     {
-     "name": "变身作弊捉迷藏",
+     "name": "21. 变身作弊捉迷藏",
      "path": "/Minecraft video/Maizen Mikey and JJ/I Shapeshift To Cheat In Minecraft Hide And Seek! [2J6SaZ17dDU].mp4",
      "thumb": "thumbs/maizen_021.jpg"
     },
     {
-     "name": "带宝宝生存100天",
+     "name": "22. 带宝宝生存100天",
      "path": "/Minecraft video/Maizen Mikey and JJ/I Survived 100 Days With A Baby in Minecraft [v1q1h13RR50].mp4",
      "thumb": "thumbs/maizen_022.jpg"
     },
     {
-     "name": "选错房子就会死",
+     "name": "23. 选错房子就会死",
      "path": "/Minecraft video/Maizen Mikey and JJ/IF YOU CHOOSE THE WRONG HOUSE, YOU DIE! - Minecraft [RH0CdbcGOVY].mp4",
      "thumb": "thumbs/maizen_023.jpg"
     },
     {
-     "name": "单方块刷怪生存",
+     "name": "24. 单方块刷怪生存",
      "path": "/Minecraft video/Maizen Mikey and JJ/LOCKED on ONE BLOCK As MOBs [ZFHZAK1ax1E].mp4",
      "thumb": "thumbs/maizen_024.jpg"
     },
     {
-     "name": "Mikey vs JJ 最安全房屋大战",
+     "name": "25. Mikey vs JJ 最安全房屋大战",
      "path": "/Minecraft video/Maizen Mikey and JJ/Mikey vs JJ - The Most Secure House Battle in Minecraft! [iL72Al6uA_k].mp4",
      "thumb": "thumbs/maizen_025.jpg"
     },
     {
-     "name": "每跳1000英尺",
+     "name": "26. 每跳1000英尺",
      "path": "/Minecraft video/Maizen Mikey and JJ/MINECRAFT But EVERY JUMP Is 1000 FEET! [msKImvCL1fg].mp4",
      "thumb": "thumbs/maizen_026.jpg"
     },
     {
-     "name": "我有100万颗绿宝石",
+     "name": "27. 我有100万颗绿宝石",
      "path": "/Minecraft video/Maizen Mikey and JJ/Minecraft But I have $1,000,000 Emeralds [0KJi19Zzn9c].mp4",
      "thumb": "thumbs/maizen_027.jpg"
     },
     {
-     "name": "只有一个木筏",
+     "name": "28. 只有一个木筏",
      "path": "/Minecraft video/Maizen Mikey and JJ/Minecraft But There Is Only One RAFT [i1rbYI_R0Zo].mp4",
      "thumb": "thumbs/maizen_028.jpg"
     },
     {
-     "name": "永远死不了",
+     "name": "29. 永远死不了",
      "path": "/Minecraft video/Maizen Mikey and JJ/Minecraft But You Can Never Die [w367hM9Y4dE].mp4",
      "thumb": "thumbs/maizen_029.jpg"
     },
     {
-     "name": "新手 vs 高手：最安全僵尸安全屋",
+     "name": "30. 新手 vs 高手：最安全僵尸安全屋",
      "path": "/Minecraft video/Maizen Mikey and JJ/Minecraft NOOB vs PRO_ SAFEST ZOMBIE SECURITY HOUSE BUILD CHALLENGE.mp4",
      "thumb": "thumbs/maizen_030.jpg"
     },
     {
-     "name": "新手 vs 高手：现代秘密基地",
+     "name": "31. 新手 vs 高手：现代秘密基地",
      "path": "/Minecraft video/Maizen Mikey and JJ/Minecraft NOOB vs PRO： MODERN SECRET BASE BUILD CHALLENGE [NSh5SW8jgKE].mp4",
      "thumb": "thumbs/maizen_031.jpg"
     },
     {
-     "name": "新手 vs 高手：最安全监狱",
+     "name": "32. 新手 vs 高手：最安全监狱",
      "path": "/Minecraft video/Maizen Mikey and JJ/Minecraft NOOB vs PRO： SAFEST SECURITY PRISON BUILD CHALLENGE [CWhWIJw4gwE].mp4",
      "thumb": "thumbs/maizen_032.jpg"
     },
     {
-     "name": "新手 vs 高手：最安全僵尸安全屋",
+     "name": "33. 新手 vs 高手：最安全僵尸安全屋",
      "path": "/Minecraft video/Maizen Mikey and JJ/Minecraft NOOB vs PRO： SAFEST ZOMBIE SECURITY HOUSE BUILD CHALLENGE [Kz5v5QH9CN0].mp4",
      "thumb": "thumbs/maizen_033.jpg"
     },
     {
-     "name": "村民把村子劈成两半",
+     "name": "34. 村民把村子劈成两半",
      "path": "/Minecraft video/Maizen Mikey and JJ/Minecraft Villagers SPLIT The Village in HALF [7NWSsgvzkCE].mp4",
      "thumb": "thumbs/maizen_034.jpg"
     },
     {
-     "name": "一切都超强",
+     "name": "35. 一切都超强",
      "path": "/Minecraft video/Maizen Mikey and JJ/Minecraft, But Everything is OVERPOWRED! [hxPmISV7ACQ].mp4",
      "thumb": "thumbs/maizen_035.jpg"
     },
     {
-     "name": "一切都带毒",
+     "name": "36. 一切都带毒",
      "path": "/Minecraft video/Maizen Mikey and JJ/Minecraft, But Everything is Poisoned! [0MS8DlDW_gk].mp4",
      "thumb": "thumbs/maizen_036.jpg"
     },
     {
-     "name": "世界颠倒",
+     "name": "37. 世界颠倒",
      "path": "/Minecraft video/Maizen Mikey and JJ/Minecraft, But Upside Down [POQfESbt5U8].mp4",
      "thumb": "thumbs/maizen_037.jpg"
     },
     {
-     "name": "只有一个区块",
+     "name": "38. 只有一个区块",
      "path": "/Minecraft video/Maizen Mikey and JJ/Minecraft, but we only get ONE chunk.. [Cw8pC_3gphk].mp4",
      "thumb": "thumbs/maizen_038.jpg"
     },
     {
-     "name": "只有一个方块",
+     "name": "39. 只有一个方块",
      "path": "/Minecraft video/Maizen Mikey and JJ/Minecraft, But You Only Get One Block! [ZwAPXpTNp0E].mp4",
      "thumb": "thumbs/maizen_039.jpg"
     },
     {
-     "name": "迷你捉迷藏",
+     "name": "40. 迷你捉迷藏",
      "path": "/Minecraft video/Maizen Mikey and JJ/Minecraft： TINY HIDE AND SEEK [Fgi9ONHC-40].mp4",
      "thumb": "thumbs/maizen_040.jpg"
     },
     {
-     "name": "新手 vs 黑客：我在建筑赛作弊",
+     "name": "41. 新手 vs 黑客：我在建筑赛作弊",
      "path": "/Minecraft video/Maizen Mikey and JJ/NOOB vs HACKER： I CHEATED in a Build Challenge [0xNmWaumkn0].mp4",
      "thumb": "thumbs/maizen_041.jpg"
     },
     {
-     "name": "新手 vs 高手：全自动安全屋",
+     "name": "42. 新手 vs 高手：全自动安全屋",
      "path": "/Minecraft video/Maizen Mikey and JJ/NOOB vs PRO： FULLY AUTOMATIC SECURITY HOUSE BUILD CHALLENGE in Minecraft [khUpw6ryx0M].mp4",
      "thumb": "thumbs/maizen_042.jpg"
     },
     {
-     "name": "新手 vs 高手：巨型迷宫",
+     "name": "43. 新手 vs 高手：巨型迷宫",
      "path": "/Minecraft video/Maizen Mikey and JJ/NOOB vs PRO： GIANT MAZE BUILD CHALLENGE [A59WgEEl57k].mp4",
      "thumb": "thumbs/maizen_043.jpg"
     },
     {
-     "name": "新手 vs 高手：用神装捉迷藏",
+     "name": "44. 新手 vs 高手：用神装捉迷藏",
      "path": "/Minecraft video/Maizen Mikey and JJ/NOOB vs PRO： Hide And Seek with OP Items in Minecraft [bknYyhSBp2o].mp4",
      "thumb": "thumbs/maizen_044.jpg"
     },
     {
-     "name": "神武器：速通 vs 猎人",
+     "name": "45. 神武器：速通 vs 猎人",
      "path": "/Minecraft video/Maizen Mikey and JJ/OP WEAPON Speedrunner vs Hunter in Minecraft [PqmdWcBH51I].mp4",
      "thumb": "thumbs/maizen_045.jpg"
     },
     {
-     "name": "超强护甲：速通 vs 猎人",
+     "name": "46. 超强护甲：速通 vs 猎人",
      "path": "/Minecraft video/Maizen Mikey and JJ/OVERPOWERED ARMOR Speedrunner vs Hunter in Minecraft [bgUh1yTUeZw].mp4",
      "thumb": "thumbs/maizen_046.jpg"
     },
     {
-     "name": "幸运方块赛跑",
+     "name": "47. 幸运方块赛跑",
      "path": "/Minecraft video/Maizen Mikey and JJ/Playing A LUCKY BLOCK RACE in Minecraft [JQcEDLt-5C4].mp4",
      "thumb": "thumbs/maizen_047.jpg"
     },
     {
-     "name": "扮演僵尸",
+     "name": "48. 扮演僵尸",
      "path": "/Minecraft video/Maizen Mikey and JJ/Playing Minecraft As A ZOMBIE! [ESS307lTGW0].mp4",
      "thumb": "thumbs/maizen_048.jpg"
     },
     {
-     "name": "从史莱姆监狱救出Mikey",
+     "name": "49. 从史莱姆监狱救出Mikey",
      "path": "/Minecraft video/Maizen Mikey and JJ/Saving Mikey From Slime Prison in Minecraft! [3NxDe-XxolA].mp4",
      "thumb": "thumbs/maizen_049.jpg"
     },
     {
-     "name": "砍树掉神装：速通 vs 猎人",
+     "name": "50. 砍树掉神装：速通 vs 猎人",
      "path": "/Minecraft video/Maizen Mikey and JJ/Speedrunner VS Hunter But Trees Drop OVERPOWERED Items [E-bpZlbJeQI].mp4",
      "thumb": "thumbs/maizen_050.jpg"
     },
     {
-     "name": "物品可复制：速通 vs 猎人",
+     "name": "51. 物品可复制：速通 vs 猎人",
      "path": "/Minecraft video/Maizen Mikey and JJ/Speedrunner VS Hunter But You Can Multiply Any Item - Minecraft [Wub3MT_7mLE].mp4",
      "thumb": "thumbs/maizen_051.jpg"
     },
     {
-     "name": "物品可复制：速通 vs 猎人",
+     "name": "52. 物品可复制：速通 vs 猎人",
      "path": "/Minecraft video/Maizen Mikey and JJ/Speedrunner VS Hunter But You Can Multiply Any Item - Minecraft.mp4",
      "thumb": "thumbs/maizen_052.jpg"
     },
     {
-     "name": "什么都能挖：速通 vs 猎人",
+     "name": "53. 什么都能挖：速通 vs 猎人",
      "path": "/Minecraft video/Maizen Mikey and JJ/Speedrunner VS Hunter, But You Can Mine Anything [pWwA18aJZco].mp4",
      "thumb": "thumbs/maizen_053.jpg"
     },
     {
-     "name": "变身：速通 vs 猎人",
+     "name": "54. 变身：速通 vs 猎人",
      "path": "/Minecraft video/Maizen Mikey and JJ/Speedrunner vs. Hunter, But You Can Shapeshift - Minecraft [W6lNpfDPujI].mp4",
      "thumb": "thumbs/maizen_054.jpg"
     },
     {
-     "name": "我的世界里做手术",
+     "name": "55. 我的世界里做手术",
      "path": "/Minecraft video/Maizen Mikey and JJ/Surgery in Minecraft [Rd1EliKnzWA].mp4",
      "thumb": "thumbs/maizen_055.jpg"
     },
     {
-     "name": "神武器轮盘",
+     "name": "56. 神武器轮盘",
      "path": "/Minecraft video/Maizen Mikey and JJ/The Roulette of OP Weapons in Minecraft! [uVCou3fwi4E].mp4",
      "thumb": "thumbs/maizen_056.jpg"
     },
     {
-     "name": "武器轮盘",
+     "name": "57. 武器轮盘",
      "path": "/Minecraft video/Maizen Mikey and JJ/The Roulette of Weapons in Minecraft! [WnwYrkx_ya0].mp4",
      "thumb": "thumbs/maizen_057.jpg"
     },
     {
-     "name": "小人vs巨人：速通 vs 猎人",
+     "name": "58. 小人vs巨人：速通 vs 猎人",
      "path": "/Minecraft video/Maizen Mikey and JJ/Tiny & Giant Speedrunner VS Hunter in Minecraft [WSGsGQmOjC4].mp4",
      "thumb": "thumbs/maizen_058.jpg"
     },
     {
-     "name": "史莱姆洞穴寻宝",
+     "name": "59. 史莱姆洞穴寻宝",
      "path": "/Minecraft video/Maizen Mikey and JJ/Treasure Hunt In A Slime Cave! [tGS3zpJowAE].mp4",
      "thumb": "thumbs/maizen_059.jpg"
     },
     {
-     "name": "狼人的一生",
+     "name": "60. 狼人的一生",
      "path": "/Minecraft video/Maizen Mikey and JJ/Werewolf's Birth to Death in Minecraft [w_7HhNHB8yk].mp4",
      "thumb": "thumbs/maizen_060.jpg"
     },
     {
-     "name": "凋灵风暴 vs 安全屋",
+     "name": "61. 凋灵风暴 vs 安全屋",
      "path": "/Minecraft video/Maizen Mikey and JJ/Wither Storm vs. Security House - Minecraft [vMMwtwDlMzo].mp4",
      "thumb": "thumbs/maizen_061.jpg"
     }
