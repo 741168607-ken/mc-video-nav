@@ -1,0 +1,280 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="我的世界视频">
+<title>我的世界视频导航</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --grass:#5d9430; --grass2:#7cbd42; --dirt:#8b5a2b; --dirt2:#6b4420;
+  --stone:#9a9a9a; --stone-d:#6f6f6f; --panel:#c6c6c6; --panel-d:#8a8a8a;
+  --ink:#2e2e2e; --white:#fff;
+  --diamond:#4fd1c5; --red:#c0392b; --gold:#f1c40f;
+  --hard:4px 4px 0 rgba(0,0,0,.35);
+}
+html,body{height:100%}
+body{
+  font-family:"PingFang SC","Microsoft YaHei",sans-serif;
+  color:var(--ink);
+  background:linear-gradient(180deg,#7eb6ff 0%,#a9d4ff 45%,#cfe8ff 100%) fixed;
+  min-height:100vh; overflow-x:hidden;
+}
+/* 像素云 */
+.cloud{position:fixed;background:#fff;image-rendering:pixelated;opacity:.9;z-index:0}
+.cloud i{position:absolute;background:#fff}
+.c1{width:120px;height:26px;top:9%;left:6%}
+.c1 i{width:34px;height:34px;top:-20px;left:16px}.c1 i.b{left:52px;width:46px;height:46px;top:-32px}
+.c2{width:90px;height:20px;top:24%;right:8%;opacity:.7}
+.c2 i{width:26px;height:26px;top:-16px;left:14px}
+.c3{width:150px;height:30px;bottom:12%;left:26%;opacity:.6}
+.c3 i{width:40px;height:40px;top:-24px;left:24px}.c3 i.b{left:70px;width:54px;height:54px;top:-34px}
+
+.app{position:relative;z-index:1;display:flex;gap:18px;padding:18px;max-width:1500px;margin:0 auto;min-height:100vh}
+
+/* 侧栏：石质面板 */
+.sidebar{
+  width:260px;flex-shrink:0;background:var(--panel);
+  border:3px solid var(--stone-d);
+  box-shadow:var(--hard), inset 2px 2px 0 #e8e8e8, inset -2px -2px 0 var(--panel-d);
+  padding:16px 12px;display:flex;flex-direction:column;
+  height:calc(100vh - 36px);position:sticky;top:18px;
+}
+.brand{display:flex;align-items:center;gap:10px;padding:0 6px 14px}
+.logo{width:46px;height:46px;flex-shrink:0;border:2px solid var(--dirt2);
+  background:linear-gradient(180deg,var(--grass2) 0 35%,var(--dirt) 35% 100%);
+  box-shadow:2px 2px 0 rgba(0,0,0,.3);image-rendering:pixelated}
+.brand h1{font-size:16px;font-weight:900;color:var(--ink);text-shadow:1px 1px 0 #fff}
+.brand .meta{font-size:11px;color:#555;margin-top:2px}
+.nav{overflow-y:auto;flex:1;display:flex;flex-direction:column;gap:10px;padding:4px 2px}
+.nav::-webkit-scrollbar{width:8px}
+.nav::-webkit-scrollbar-thumb{background:var(--stone-d)}
+.nav-item{
+  flex:1 1 0;min-height:40px;color:#fff;font-weight:800;font-size:14px;
+  display:flex;align-items:center;justify-content:space-between;padding:0 14px;cursor:pointer;
+  border:3px solid rgba(0,0,0,.35);
+  box-shadow:inset 2px 2px 0 rgba(255,255,255,.35), inset -2px -2px 0 rgba(0,0,0,.3);
+  text-shadow:1px 1px 0 rgba(0,0,0,.4);
+}
+.nav-item:active{box-shadow:inset 2px 2px 0 rgba(0,0,0,.25)}
+.nav-item.active{outline:3px solid #fff;outline-offset:-3px}
+.nav-item .nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nav-item .count{background:rgba(0,0,0,.25);font-size:11px;padding:2px 9px;flex-shrink:0}
+.sidebar-foot{padding:12px 6px 2px;border-top:3px dashed var(--panel-d);font-size:12px;color:#444;margin-top:8px}
+.reset-link{cursor:pointer;color:var(--red);font-weight:800}
+.reset-link:hover{text-decoration:underline}
+
+/* 主区 */
+.main{flex:1;min-width:0;padding:4px 6px 30px}
+.heading{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:2px 4px 16px}
+.heading h2{
+  font-size:26px;font-weight:900;color:#fff;text-shadow:2px 2px 0 rgba(0,0,0,.35);
+  font-family:"Courier New",monospace;letter-spacing:1px;
+}
+.heading .sub{font-size:13px;color:#234;font-weight:700;background:rgba(255,255,255,.6);padding:3px 10px;box-shadow:2px 2px 0 rgba(0,0,0,.15)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+
+/* 卡片：草地方块 */
+.card{
+  background:#f5f5dc;border:3px solid rgba(0,0,0,.35);box-shadow:var(--hard);
+  overflow:hidden;cursor:pointer;transition:transform .1s;
+}
+.card:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 rgba(0,0,0,.35)}
+.card:active{transform:translate(2px,2px);box-shadow:1px 1px 0 rgba(0,0,0,.35)}
+.poster{
+  position:relative;aspect-ratio:16/10;
+  background:linear-gradient(180deg,#7cbd42 0 22%,#8b5a2b 22%);
+  display:flex;align-items:center;justify-content:center;
+}
+.poster::after{content:"";position:absolute;inset:0;
+  background-image:radial-gradient(rgba(0,0,0,.08) 1px,transparent 1px);
+  background-size:8px 8px;pointer-events:none}
+.block-icon{font-size:46px;filter:drop-shadow(2px 2px 0 rgba(0,0,0,.3))}
+.play-badge{
+  position:absolute;right:8px;bottom:8px;width:38px;height:38px;
+  background:var(--grass);border:2px solid rgba(0,0,0,.4);
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  box-shadow:2px 2px 0 rgba(0,0,0,.3);
+}
+.play-badge svg{width:18px;height:18px;margin-left:2px}
+.card-body{padding:10px 12px 12px;background:#e8e0c8}
+.card-name{
+  font-size:13.5px;font-weight:800;line-height:1.45;color:#3a2e1e;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:40px;
+}
+.card-meta{display:flex;align-items:center;margin-top:8px;gap:8px}
+.card-count{
+  display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:800;
+  color:#2c5e1e;background:#cfe8b0;border:2px solid rgba(0,0,0,.25);
+  padding:3px 9px;box-shadow:inset 1px 1px 0 rgba(255,255,255,.5);
+}
+.card-count .dot{width:8px;height:8px;background:#4caf50}
+.card-count.zero{color:#888;background:#ddd}
+.card-count.zero .dot{background:#aaa}
+
+.toast{
+  position:fixed;top:20px;left:50%;transform:translate(-50%,-80px);z-index:200;
+  background:#333;color:#fff;font-size:14px;font-weight:800;padding:11px 24px;
+  border:3px solid #000;box-shadow:var(--hard);transition:transform .2s;max-width:86vw;
+}
+.toast.show{transform:translate(-50%,0)}
+
+@media (max-width:860px){
+  .app{flex-direction:column;padding:12px;gap:12px}
+  .sidebar{width:100%;height:auto;position:static;max-height:none}
+  .nav{flex-direction:row;overflow-x:auto;overflow-y:hidden}
+  .nav-item{flex:0 0 auto;min-width:120px}
+  .heading h2{font-size:21px}
+  .grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+}
+</style>
+</head>
+<body>
+<div class="cloud c1"><i></i><i class="b"></i></div>
+<div class="cloud c2"><i></i></div>
+<div class="cloud c3"><i></i><i class="b"></i></div>
+
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="logo"></div>
+      <div>
+        <h1 id="site-title">我的世界视频</h1>
+        <div class="meta" id="generated-at"></div>
+      </div>
+    </div>
+    <nav class="nav" id="category-nav"></nav>
+    <div class="sidebar-foot">
+      <span class="reset-link" id="reset-counts">🗑 清零播放次数</span>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="heading">
+      <h2 id="heading-title">全部视频</h2>
+      <span class="sub" id="heading-sub"></span>
+    </div>
+    <div class="grid" id="card-grid"></div>
+  </main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="data.js"></script>
+<script>
+(function(){
+  "use strict";
+  var DATA = window.NAV_DATA || {title:"我的世界视频导航", categories:[]};
+  var state = {cat:"all"};
+  var BAIDU_PLAY = "https://pan.baidu.com/play/video#/video?path=";
+  function $(id){ return document.getElementById(id); }
+  function setText(id,t){ $(id).textContent=t; }
+
+  var toastTimer=null;
+  function toast(msg){ var t=$("toast"); t.textContent=msg; t.classList.add("show");
+    if(toastTimer)clearTimeout(toastTimer);
+    toastTimer=setTimeout(function(){t.classList.remove("show");},2000); }
+
+  var counts={};
+  function loadCounts(){ try{counts=JSON.parse(localStorage.getItem("mcnav.counts")||"{}")||{};}catch(e){counts={};} }
+  function saveCounts(){ try{localStorage.setItem("mcnav.counts",JSON.stringify(counts));}catch(e){} }
+  function countOf(p){ var n=parseInt(counts[p]||0,10); return isNaN(n)?0:n; }
+  function bumpCount(p){ counts[p]=countOf(p)+1; saveCounts(); updateCountBadges(p); }
+  function countBadgeHtml(p){ var n=countOf(p); return '<span class="dot"></span>'+(n===0?"没播过":"播放 "+n+" 次"); }
+  function updateCountBadges(p){
+    document.querySelectorAll("[data-count-path]").forEach(function(el){
+      if(el.getAttribute("data-count-path")===p){
+        el.className="card-count"+(countOf(p)===0?" zero":"");
+        el.innerHTML=countBadgeHtml(p);
+      }
+    });
+  }
+  function playUrl(v){ return BAIDU_PLAY+encodeURIComponent(v.path||""); }
+  function playInBaidu(v){ bumpCount(v.path); window.open(playUrl(v),"_blank"); }
+
+  function totalVideos(){ var n=0; DATA.categories.forEach(function(c){n+=(c.videos||[]).length;}); return n; }
+  function visibleVideos(){
+    if(state.cat==="all"){ var l=[]; DATA.categories.forEach(function(c,i){
+      (c.videos||[]).forEach(function(v){ l.push({cat:i,video:v}); }); }); return l; }
+    var c=DATA.categories[state.cat], out=[];
+    if(c)(c.videos||[]).forEach(function(v){ out.push({cat:state.cat,video:v}); }); return out;
+  }
+
+  var NAV_COLORS=["#7cb342","#4fa3d1","#8b5a2b"];
+  var ICONS=["⛏️","🗡️","📦"];
+  function renderNav(){
+    var nav=$("category-nav"); nav.innerHTML="";
+    function item(key,label,count,color,icon){
+      var el=document.createElement("div");
+      el.className="nav-item"+(state.cat===key?" active":"");
+      el.setAttribute("data-cat",key); el.style.background=color;
+      el.innerHTML='<span class="nm">'+icon+" "+label+'</span><span class="count">'+count+"</span>";
+      nav.appendChild(el);
+    }
+    item("all","全部",totalVideos(),"#5d9430","🌍");
+    DATA.categories.forEach(function(c,i){
+      item(String(i),c.name||("分类"+(i+1)),(c.videos||[]).length,
+           NAV_COLORS[i%NAV_COLORS.length], ICONS[i%ICONS.length]);
+    });
+  }
+
+  function renderCards(){
+    var grid=$("card-grid"); grid.innerHTML="";
+    var list=visibleVideos();
+    list.forEach(function(it){
+      var v=it.video;
+      var card=document.createElement("div"); card.className="card";
+      var poster=document.createElement("div"); poster.className="poster";
+      var icon=document.createElement("div"); icon.className="block-icon";
+      icon.textContent=ICONS[it.cat%ICONS.length];
+      var badge=document.createElement("div"); badge.className="play-badge";
+      badge.innerHTML='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+      poster.appendChild(icon); poster.appendChild(badge);
+      var body=document.createElement("div"); body.className="card-body";
+      var name=document.createElement("div"); name.className="card-name"; name.textContent=v.name;
+      var meta=document.createElement("div"); meta.className="card-meta";
+      var cnt=document.createElement("div");
+      cnt.className="card-count"+(countOf(v.path)===0?" zero":"");
+      cnt.setAttribute("data-count-path",v.path); cnt.innerHTML=countBadgeHtml(v.path);
+      meta.appendChild(cnt); body.appendChild(name); body.appendChild(meta);
+      card.appendChild(poster); card.appendChild(body);
+      card.addEventListener("click",function(){ playInBaidu(v); });
+      grid.appendChild(card);
+    });
+  }
+
+  function renderHeading(){
+    if(state.cat==="all"){ setText("heading-title","我的世界 · 全部视频"); setText("heading-sub",totalVideos()+" 个视频"); }
+    else{ var c=DATA.categories[state.cat];
+      setText("heading-title",c?c.name:"视频");
+      setText("heading-sub",(c?(c.videos||[]).length:0)+" 个视频"); }
+  }
+  function renderAll(){ renderNav(); renderHeading(); renderCards();
+    try{localStorage.setItem("mcnav.state",JSON.stringify({cat:state.cat}));}catch(e){} }
+
+  document.title=DATA.title||"我的世界视频";
+  setText("site-title",DATA.title||"我的世界视频");
+  loadCounts();
+  try{ var s=JSON.parse(localStorage.getItem("mcnav.state")||"null");
+    if(s){ if(s.cat==="all")state.cat="all";
+      else if(typeof s.cat==="number"&&s.cat>=0&&s.cat<DATA.categories.length)state.cat=s.cat; } }catch(e){}
+
+  $("category-nav").addEventListener("click",function(e){
+    var it=e.target.closest(".nav-item"); if(!it)return;
+    var k=it.getAttribute("data-cat");
+    state.cat=(k==="all")?"all":Number(k); renderAll();
+  });
+  $("reset-counts").addEventListener("click",function(){
+    if(!window.confirm("确定清零播放次数吗？"))return;
+    try{localStorage.removeItem("mcnav.counts");}catch(e){}
+    counts={}; renderCards(); toast("已清零");
+  });
+  renderAll();
+})();
+</script>
+</body>
+</html>
